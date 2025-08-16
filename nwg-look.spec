@@ -12,6 +12,7 @@ Group:		Window Manager/Utility
 
 BuildRequires:	go
 BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:	pkgconfig(cairo)
 
 %description
 Nwg-look is a GTK settings editor, designed to work properly in wlroots-based Wayland environment. The look and feel is strongly influenced by LXAppearance, but nwg-look is intended to free the user from a few inconveniences.
