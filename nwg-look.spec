@@ -2,7 +2,7 @@
 
 Name:		nwg-look
 Version:	1.0.6
-Release:	1
+Release:	2
 Source0:	https://github.com/nwg-piotr/nwg-look/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:    %{name}-%{version}-vendor.tar.gz
 Summary:	GTK3 settings editor adapted to work in the wlroots environment
@@ -25,9 +25,15 @@ Nwg-look is a GTK settings editor, designed to work properly in wlroots-based Wa
 tar -zxf %{SOURCE1}
 
 %build
-go build -o %{buildroot}%{_bindir}/nwg-look
+go build -o bin/nwg-look -trimpath -buildmode=pie
+
+%install
+%make_install
 
 %files
 %doc README.md
 %license LICENSE
 %{_bindir}/%{name}
+%{_datadir}/nwg-look
+%{_datadir}/pixmaps/nwg-look.svg
+%{_datadir}/applications/nwg-look.desktop
